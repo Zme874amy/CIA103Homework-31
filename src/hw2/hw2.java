@@ -80,6 +80,7 @@ public class hw2 {
 			System.out.println();
 		}
 		
+//		以下是*星號版本的
 		for(int i =1;i<=6;i++) {
 			l++;
 			for(int j =1 ;j<=i;j++ ) {
