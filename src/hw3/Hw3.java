@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Hw3 {
 	static void printArr(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i]+"\t");
+			System.out.print(arr[i] + "\t");
 		}
 	}
 
@@ -30,17 +30,19 @@ public class Hw3 {
 	static void calcPossibleInts(int hatedInt) {
 		int sum = 0;
 		for (int x = 0; x <= 4; x++) {
-			if (x != hatedInt)
-				for (int y = 0; y <= 9; y++) {
-					if (y != hatedInt) {
-						if (x == 0 && y == 0)
-							continue;
-						System.out.print(10 * x + y + "\t");
-						sum++;
-						if (sum % 5 == 0)
-							System.out.println();
-					}
-				}
+			if (x == hatedInt)
+				continue;
+			for (int y = 0; y <= 9; y++) {
+				if (y == hatedInt)
+					continue;
+				if (x == 0 && y == 0)
+					continue;
+				System.out.print(10 * x + y + "\t");
+				sum++;
+				if (sum % 5 == 0)
+					System.out.println();
+
+			}
 		}
 	}
 
@@ -105,10 +107,10 @@ public class Hw3 {
 		System.out.println("開始猜數字吧");
 		do {
 			int guess = sc.nextInt();
-			if (guess==answer) {
-				isGuessRight=true;
-				System.out.println("Correct! The answer is "+answer);
-			}else {
+			if (guess == answer) {
+				isGuessRight = true;
+				System.out.println("Correct! The answer is " + answer);
+			} else {
 				System.out.println("Miss it. Try again: ");
 			}
 		} while (!isGuessRight);
@@ -128,7 +130,7 @@ public class Hw3 {
 		}
 //		以下是不用array的方法：
 //		calcPossibleInts(hatedInt);
-		
+
 //		以下是使用array並獲得6個數字的方法：
 		final int[] result = get6Ints(hatedInt, calcPossibleIntArr(hatedInt));
 		printArr(result);
